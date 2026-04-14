@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Processor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Reco2.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Thanks for the Reco!!!</h1>
+        <h3>Please help to double check...</h3>
+        <p>Name: <span id="titleResult"></span></p>
+        <p>Language: <span id="languageResult"></span></p>
+        <p>Genre: <span id="genreResult"></span></p>
+        <p>Status: <span id="progressResult"></span></p>
+        <p>Why do you recommend it: <span id="opinionResult"></span></p>
+        <p>Rating: <span id="ratingResult"></span>/5</p>
+        <br>
+        <a href="index.html"><button class="btn">Back to website!</button></a>
+        <a href="Reco.html"><button class="btn">One more drama!</button></a>
+    </div>
+    
+    <script>
+         // Extract form data from the query parameters of the URL
+        var queryParams = new URLSearchParams(window.location.search);
+        var title = queryParams.get('title');
+        var language = queryParams.getAll('language');
+        var genre = queryParams.getAll('genre')
+        var progress = queryParams.get('progress')
+        var opinion = queryParams.get('opinion')
+        var rating = queryParams.get('rating')
+        if (!rating || isNaN(rating) || rating < 1) {
+            rating = 5; // Set a default rating of 5
+        }
+
+        // Update the content of the result elements with the form data
+        document.getElementById('titleResult').textContent = title;
+        var languageResultElement = document.getElementById('languageResult');
+        if (language.length === 1) {
+            languageResultElement.textContent = language[0];
+        } else {
+            languageResultElement.textContent = language.join(', ');
+        }
+        var genreResultElement = document.getElementById('genreResult');
+        if (genre.length === 1) {
+            genreResultElement.textContent = genre[0];
+        } else {
+            genreResultElement.textContent = genre.join(', ');
+        }
+        document.getElementById('progressResult').textContent =  progress;
+        document.getElementById('opinionResult').textContent = opinion;
+        document.getElementById('ratingResult').textContent = rating;
+    </script>
+</body>
+</html>

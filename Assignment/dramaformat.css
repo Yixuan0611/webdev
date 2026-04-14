@@ -1,0 +1,82 @@
+main{
+    font-family: 'Comic Neue', cursive, 'Open Sans', sans-serif;
+}
+h1, tfoot{
+    text-align: center;
+}
+
+.intro{
+    margin: 15px 70px 15px 70px;
+    padding: 15px 50px 15px 50px;
+    background-color: #e2e2e2;
+}
+h3{
+    text-decoration: underline;
+    padding-bottom: 15px;
+}
+p{
+    line-height: 1.4;
+}
+.link{
+    text-align: center;
+    margin-bottom: 5px;
+}
+#wow{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2em;
+}
+table, th, td{  
+    border:2px solid black;
+    border-collapse: collapse;
+    margin: 0px 70px 45px 70px;
+}
+th{
+    padding: 6px;
+    background-color: #e2e2e2;
+    font-size: 1.1em;
+}
+td{
+    border-top: solid black;
+    padding: 12px;
+}
+img{
+    width: 78%;
+    margin: 10px;
+    margin-bottom: 0;
+}
+.pictures{
+    text-align: center;
+}
+/* mobile version */
+@media only screen and (max-width: 770px){
+    li{
+        display: inline;
+    }
+    li:not(:last-child)::after {
+        content: ", "; /* Add comma after each list item except the last one */
+    }
+    .intro, table{
+        margin: 5px 35px 23px 35px;
+    }
+    table, th, td{
+        border: none;
+    }
+    th{
+        display: none;
+    }
+    td{
+        margin: 0;
+        border: 1px solid black;
+        display: block;
+        background: hsl(264 15% 94% / 0.5);
+    }
+    td::before{
+        content: attr(data-cell);
+        font-weight: 600;
+    }
+    tr:nth-of-type(2n){
+        background: hsl(264 15% 94% / 1.5);
+
+    }
+}
